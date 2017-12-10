@@ -4,13 +4,26 @@ body {
   font-family: sans-serif;
 }
 
-.container {
-  border-radius: 2rem;
-  background-color: white;
+.Logo{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
 
-.container-fluid
+nav.navbar-collapse{
+  color: white;
+}
+nav.navbar.navbar-default
 {
-  border-radius: 2rem;
-  background-color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+  /* text-align:center; */
+  background: rgba(61, 48, 31, 0.904);
+  color: white;
+  /* border-radius: 5rem; */
+}
+
+.navbar-brand {
+  padding: 0 !important;
+  margin: 0 !important;
 }
