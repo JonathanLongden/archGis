@@ -22,13 +22,12 @@ class App extends Component {
 
   render() {
         return (
-        <div>
+        <div className="container-fluid">
           <div>
             <Header />
           </div>
-          <div className="container-fluid">
+          <div>
             <LMap callbackFromApp={this.latLongCallback}/>
-            <br />
           </div>
         </div>
       );

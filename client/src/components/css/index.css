@@ -1,28 +1,50 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 20px;
+  padding: 20px;
   font-family: sans-serif;
+  background: rgba(61, 48, 31, 0.904);
+
 }
 
-.Logo{
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-}
-
-nav.navbar-collapse{
+.container-fluid
+{
   color: white;
+}
+
+.container{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+div.navbar-collapse.pull-left.collapse
+{
+  height: auto;
+}
+.navbar-default .navbar-text
+{
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+.navbar-default .navbar-text h1
+{
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+
+nav.navbar-collapse h1{
+  color: white;
+  font-size: 15px;
 }
 nav.navbar.navbar-default
 {
   font-family: "Times New Roman", Times, serif;
   font-size: 30px;
-  /* text-align:center; */
   background: rgba(61, 48, 31, 0.904);
   color: white;
-  /* border-radius: 5rem; */
 }
-
 .navbar-brand {
   padding: 0 !important;
   margin: 0 !important;

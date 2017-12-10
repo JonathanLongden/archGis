@@ -12,25 +12,19 @@ class Header extends Component {
       //user: props.SuperUser.user
     }
   }
-//   <div style={{ width: 660, height: 'auto' }}>
-//   <ResponsiveEmbed a16by9>
-//     <embed type="image/svg+xml" src="/assets/TheresaKnott_castle.svg" />
-//   </ResponsiveEmbed>
-// </div>
-// <Image className="Logo" src={Logo} responsive/>
   render() {
     return (
-      <div className="container-fluid">
-        <Navbar fluid  collapseOnSelect  >
+
+        <Navbar collapseOnSelect  >
           <Navbar.Header className="pull-left nopadding">
             <Navbar.Brand>
-              <div style={{ width: 100, height: 'auto' }}>
+              <div style={{ width: 100, height:'auto' }}>
                 <Image src={Logo} responsive/>
               </div>
             </Navbar.Brand>
           </Navbar.Header>
 
-          <Navbar.Collapse className="pull-left">
+          <Navbar.Collapse className="pull-left" style={{ width: 'auto', height: 'auto' }}>
             <Navbar.Text>
               <h1>Geospaitial Database Viewer</h1>
               <p>Natural Resources Department, Kalispel Tribe of Indians</p>
@@ -45,8 +39,7 @@ class Header extends Component {
             </NavDropdown>
           </Nav>
         </Navbar>
-      </div>
-  );
+    );
   }
 }
 
