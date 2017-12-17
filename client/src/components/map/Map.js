@@ -3,6 +3,7 @@ import '../css/Map.css';
 // import { Map } from 'react-arcgis';
 import EsriLoaderReact from 'esri-loader-react';
 
+
 class LandingMap extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +36,6 @@ class LandingMap extends Component {
 
         return (
           <div className="App">
-
             <EsriLoaderReact
               options={options}
               modulesToLoad={['esri/Map', 'esri/views/MapView', "esri/layers/FeatureLayer"]}

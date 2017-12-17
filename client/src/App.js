@@ -22,16 +22,19 @@ class App extends Component {
 
   render() {
         return (
-        <div className="container-fluid">
-          <div>
-            <Header />
-          </div>
-          <div>
-            <LMap callbackFromApp={this.latLongCallback}/>
-          </div>
+        <div className="LandingPage">
+          <Header />
+          <LMap callbackFromApp={this.latLongCallback}/>
         </div>
       );
     }
   }
 export default App;
 
+// <div>
+// <LMap callbackFromApp={this.latLongCallback}/>
+// </div>
+
+// <div >
+//    <Header />
+//  </div>
