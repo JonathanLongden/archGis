@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, MenuItem, Image } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, MenuItem, Image, Tabs, Tab } from 'react-bootstrap';
 import Logo from '../img/logo.PNG';
 import ListOfLayers from './modal/listoflayers';
 import About from './modal/about';
@@ -11,10 +11,19 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      key:  "",
+      keylist:['Streets','Aerial','Topo']
       //user: props.SuperUser.user
     }
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  handleSelect(key) {
+    // alert(`selected ${key}`);
+    this.setState({ key });
   }
   render() {
+    let number = this.state.key;
     return (
       <div className="Header">
         <Navbar collapseOnSelect  >
@@ -35,6 +44,15 @@ class Header extends Component {
               Natural Resources Department, Kalispel Tribe of Indians
             </Navbar.Text>
 
+          </Navbar.Collapse>
+          <Navbar.Collapse className="pull-left" >
+            <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
+              <Tab eventKey={0} title="Streets">Streets</Tab>
+              <Tab eventKey={1} title="Aerial">Aerial</Tab>
+              <Tab eventKey={2} title="Topo">Topo</Tab>
+
+            </Tabs>
+            <p style={{'color':'white'}}>{this.state.keylist[number]}</p>
           </Navbar.Collapse>
 
           <Nav className="pull-right" bsStyle="pills" >

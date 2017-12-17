@@ -43,7 +43,10 @@ class LandingMap extends Component {
                 loadedModules: [Map, MapView, FeatureLayer], containerNode}) => {
 
                   var Land_Map = new Map (
-                    {basemap: 'topo'}
+                    {basemap: 'topo-vector'}
+                    //"streets"
+                    //
+                    //| "satellite" | "hybrid" | "topo" |  "gray" | "dark-gray" | "oceans" | "national-geographic" | "terrain" | "osm" |  "dark-gray-vector" | "gray-vector" | "streets-vector" | "streets-night-vector" |  "streets-relief-vector" | "streets-navigation-vector" | "topo-vector".
                   )
                   var Land_View = new MapView({
                       container: containerNode,
@@ -61,7 +64,9 @@ class LandingMap extends Component {
                   };
 
                   var featureLayer = new FeatureLayer({
-                    url: "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/arcgis/rest/services/FWPLND_FAS_POINTS/FeatureServer/0",
+                    //url:'http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/PublicSafety/PublicSafetyBasemap/Topo',
+                     url: "https://services.arcgisonline.com/ArcGIS/rest/services/Specialty/DeLorme_World_Base_Map/MapServer",
+                    //url: "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/arcgis/rest/services/FWPLND_FAS_POINTS/FeatureServer/0",
                     outFields: ['*'],
                     popupTemplate: popupTemplate
                   });
