@@ -8,9 +8,11 @@ class App extends Component {
     super();
     this.state = {
       clickedFapLat: "",
-      clickedFapLong: ""
+      clickedFapLong: "",
+      BaseMap:""
     }
     this.latLongCallback = this.latLongCallback.bind(this);
+    this.setAccessToken = this.setAccessToken.bind(this);
   }
   latLongCallback(clickedFap) {
     this.setState({
@@ -20,10 +22,17 @@ class App extends Component {
     // console.log(this.state)
   }
 
+	setAccessToken(newAccessToken, userFound, userId) {
+		this.setState({
+      accessToken: newAccessToken,
+      user: userFound,
+      userId: userId
+    })
+  }
   render() {
         return (
         <div className="LandingPage">
-          <Header />
+          <Header SuperBaseMap = {this.state.BaseMap}/>
           <LMap callbackFromApp={this.latLongCallback}/>
         </div>
       );

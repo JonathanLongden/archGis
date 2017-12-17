@@ -44,9 +44,6 @@ class LandingMap extends Component {
 
                   var Land_Map = new Map (
                     {basemap: 'topo-vector'}
-                    //"streets"
-                    //
-                    //| "satellite" | "hybrid" | "topo" |  "gray" | "dark-gray" | "oceans" | "national-geographic" | "terrain" | "osm" |  "dark-gray-vector" | "gray-vector" | "streets-vector" | "streets-night-vector" |  "streets-relief-vector" | "streets-navigation-vector" | "topo-vector".
                   )
                   var Land_View = new MapView({
                       container: containerNode,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, MenuItem, Image, Tabs, Tab } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, MenuItem, Image} from 'react-bootstrap';
 import Logo from '../img/logo.PNG';
 import ListOfLayers from './modal/listoflayers';
 import About from './modal/about';
@@ -12,15 +12,21 @@ class Header extends Component {
     super(props);
     this.state = {
       key:  "",
-      keylist:['Streets','Aerial','Topo']
+      keylist:['streets','satellite','hybrid','topo','gray','dark-gray','oceans','national-geographic','terrain','osm','dark-gray-vector','gray-vector','streets-vector','streets-night-vector','streets-relief-vector','streets-navigation-vector','topo-vector'],
+      BaseMap: props.SuperBaseMap
       //user: props.SuperUser.user
     }
     this.handleSelect = this.handleSelect.bind(this);
+    console.log(this.BaseMap);
   }
+
 
   handleSelect(key) {
     // alert(`selected ${key}`);
-    this.setState({ key });
+    this.setState({
+      key,
+      BaseMap:this.state.keylist[key]
+     });
   }
   render() {
     let number = this.state.key;
@@ -46,14 +52,29 @@ class Header extends Component {
 
           </Navbar.Collapse>
           <Navbar.Collapse className="pull-left" >
-            <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
-              <Tab eventKey={0} title="Streets">Streets</Tab>
-              <Tab eventKey={1} title="Aerial">Aerial</Tab>
-              <Tab eventKey={2} title="Topo">Topo</Tab>
-
-            </Tabs>
             <p style={{'color':'white'}}>{this.state.keylist[number]}</p>
           </Navbar.Collapse>
+          <Nav className="pull-left" bsStyle="pills" >
+            <NavDropdown activeKey={this.state.key} onSelect={this.handleSelect} title="BaseMap Selection" id="basic-nav-dropdown">
+                <MenuItem eventKey={0}>streets</MenuItem>
+                <MenuItem eventKey={1}>satellite</MenuItem>
+                <MenuItem eventKey={2}>hybrid</MenuItem>
+                <MenuItem eventKey={3}>topo</MenuItem>
+                <MenuItem eventKey={4}>gray</MenuItem>
+                <MenuItem eventKey={5}>dark-gray</MenuItem>
+                <MenuItem eventKey={6}>oceans</MenuItem>
+                <MenuItem eventKey={7}>national-geographic</MenuItem>
+                <MenuItem eventKey={8}>terrain</MenuItem>
+                <MenuItem eventKey={9}>osm</MenuItem>
+                <MenuItem eventKey={10}>dark-gray-vector</MenuItem>
+                <MenuItem eventKey={11}>gray-vector</MenuItem>
+                <MenuItem eventKey={12}>streets-vector</MenuItem>
+                <MenuItem eventKey={13}>streets-night-vector</MenuItem>
+                <MenuItem eventKey={14}>streets-relief-vector</MenuItem>
+                <MenuItem eventKey={15}>streets-navigation-vector</MenuItem>
+                <MenuItem eventKey={16}>topo-vector</MenuItem>
+            </NavDropdown>
+          </Nav>
 
           <Nav className="pull-right" bsStyle="pills" >
             <NavDropdown eventKey={3} title="Tools" id="basic-nav-dropdown">
