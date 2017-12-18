@@ -13,11 +13,12 @@ class Header extends Component {
     this.state = {
       key:  "",
       keylist:['streets','satellite','hybrid','topo','gray','dark-gray','oceans','national-geographic','terrain','osm','dark-gray-vector','gray-vector','streets-vector','streets-night-vector','streets-relief-vector','streets-navigation-vector','topo-vector'],
-      BaseMap: props.SuperBaseMap
+      BaseMap: ""
       //user: props.SuperUser.user
     }
     this.handleSelect = this.handleSelect.bind(this);
-    console.log(this.BaseMap);
+    console.log(props);
+
   }
 
 
@@ -26,10 +27,15 @@ class Header extends Component {
     this.setState({
       key,
       BaseMap:this.state.keylist[key]
+
      });
+     this.props.SuperSetBaseMap(this.state.BaseMap);
+     //this.props.history.push("/");
+
   }
   render() {
     let number = this.state.key;
+    //console.log(this.state.BaseMap);
     return (
       <div className="Header">
         <Navbar collapseOnSelect  >

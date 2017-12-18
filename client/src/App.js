@@ -4,35 +4,18 @@ import Header from './components/header/header';
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      clickedFapLat: "",
-      clickedFapLong: "",
-      BaseMap:""
+      BaseMap: props.SuperSetBaseMap
     }
-    this.latLongCallback = this.latLongCallback.bind(this);
-    this.setAccessToken = this.setAccessToken.bind(this);
-  }
-  latLongCallback(clickedFap) {
-    this.setState({
-      clickedFapLat: clickedFap.clickedFapLat,
-      clickedFapLong: clickedFap.clickedFapLong
-    })
-    // console.log(this.state)
+    console.log(props)
   }
 
-	setAccessToken(newAccessToken, userFound, userId) {
-		this.setState({
-      accessToken: newAccessToken,
-      user: userFound,
-      userId: userId
-    })
-  }
   render() {
         return (
         <div className="LandingPage">
-          <Header SuperBaseMap = {this.state.BaseMap}/>
+          <Header SuperSetBaseMap = {this.state.BaseMap}/>}/>
           <LMap callbackFromApp={this.latLongCallback}/>
         </div>
       );

@@ -12,6 +12,7 @@ class LandingMap extends Component {
       clickedFapLong: ""
     };
     this.getLatLong = this.getLatLong.bind(this);
+    this.handleLatLong = this.handleLatLong.bind(this);
   }
 
   handleLatLong() {
