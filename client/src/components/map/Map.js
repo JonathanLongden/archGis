@@ -13,6 +13,7 @@ class LandingMap extends Component {
     };
     this.getLatLong = this.getLatLong.bind(this);
     this.handleLatLong = this.handleLatLong.bind(this);
+    console.log(props);
   }
 
   handleLatLong() {
