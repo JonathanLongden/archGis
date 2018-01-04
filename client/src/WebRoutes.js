@@ -8,7 +8,7 @@ class WebRoute extends Component {
 		this.state = {
       clickedLat: "",
       clickedLong: "",
-      BaseMap:""
+      BaseMap:"osm"
 		}
     this.locationCallBack = this.locationCallBack.bind(this);
     this.setBaseMap = this.setBaseMap.bind(this);
@@ -36,7 +36,7 @@ class WebRoute extends Component {
           {/*
 
          */}
-          <Route exact path="/" render={ ({ match, history }) => <App match={ match } history={ history } SuperSetBaseMap = {this.setBaseMap}/>} />
+          <Route exact path="/" render={ ({ match, history }) => <App match={ match } history={ history } SuperMap= {this.state.BaseMap} SuperSetBaseMap = {this.setBaseMap}/>} />
 
         </Switch>
       </BrowserRouter>

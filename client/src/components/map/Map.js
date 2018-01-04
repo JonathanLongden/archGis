@@ -9,7 +9,8 @@ class LandingMap extends Component {
     super(props);
     this.state = {
       clickedFapLat: "",
-      clickedFapLong: ""
+      clickedFapLong: "",
+      BaseMap: props.SuperMap
     };
     this.getLatLong = this.getLatLong.bind(this);
     this.handleLatLong = this.handleLatLong.bind(this);
@@ -30,7 +31,7 @@ class LandingMap extends Component {
     this.handleLatLong();
   }
   render() {
-
+      //console.log(this.props.SuperMap)
        const options = {
           url: 'https://js.arcgis.com/4.5/'
         };
@@ -45,7 +46,8 @@ class LandingMap extends Component {
                 loadedModules: [Map, MapView, FeatureLayer], containerNode}) => {
 
                   var Land_Map = new Map (
-                    {basemap: 'topo-vector'}
+                    {basemap: this.state.BaseMap}
+                    // {basemap: 'topo-vector'}
                   )
                   var Land_View = new MapView({
                       container: containerNode,

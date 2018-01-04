@@ -7,26 +7,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      BaseMap: props.SuperSetBaseMap
+      BaseMap: props.SuperSetBaseMap,
+      CurrenBaseMap: props.SuperMap
     }
-    console.log(props)
+    console.log(this.props)
   }
 
   render() {
+    console.log(this.props.SuperMap);
         return (
         <div className="LandingPage">
-          <Header SuperSetBaseMap = {this.state.BaseMap}/>}/>
-          <LMap callbackFromApp={this.latLongCallback}/>
+          <Header SuperSetBaseMap = {this.state.BaseMap}/>
+          <LMap callbackFromApp={this.latLongCallback} SuperMap = {this.state.CurrenBaseMap}/>
         </div>
       );
     }
   }
 export default App;
 
-// <div>
-// <LMap callbackFromApp={this.latLongCallback}/>
-// </div>
 
-// <div >
-//    <Header />
-//  </div>
