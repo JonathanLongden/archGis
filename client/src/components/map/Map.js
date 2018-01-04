@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/Map.css';
 // import { Map } from 'react-arcgis';
 import EsriLoaderReact from 'esri-loader-react';
+import {reactLocalStorage} from 'reactjs-localstorage';
 
 
 class LandingMap extends Component {
@@ -30,6 +31,18 @@ class LandingMap extends Component {
     });
     this.handleLatLong();
   }
+  getCurrenBaseMap(){
+    var i = reactLocalStorage.get('var', this.state.BaseMap);
+    var result = (typeof i === 'string');
+    if (result){
+      return i;
+    }
+    else
+    {
+      return 'streets';
+    }
+  }
+
   render() {
       //console.log(this.props.SuperMap)
        const options = {
@@ -46,7 +59,8 @@ class LandingMap extends Component {
                 loadedModules: [Map, MapView, FeatureLayer], containerNode}) => {
 
                   var Land_Map = new Map (
-                    {basemap: this.state.BaseMap}
+                    {basemap: this.getCurrenBaseMap()}
+                    // {basemap: this.props.SuperMap}
                     // {basemap: 'topo-vector'}
                   )
                   var Land_View = new MapView({

@@ -3,6 +3,7 @@ import { Navbar, Nav, NavDropdown, MenuItem, Image} from 'react-bootstrap';
 import Logo from '../img/logo.PNG';
 import ListOfLayers from './modal/listoflayers';
 import About from './modal/about';
+import {reactLocalStorage} from 'reactjs-localstorage';
 //import { LinkContainer } from 'react-router-bootstrap';
 //import { Link } from 'react-router-dom';
 
@@ -17,20 +18,35 @@ class Header extends Component {
       //user: props.SuperUser.user
     }
     this.handleSelect = this.handleSelect.bind(this);
+    this.quickChange = this.quickChange.bind(this);
     console.log(props);
 
   }
 
+  quickChange(base){
+    if(base == null){
+      return 'streets';
+    }
 
+  }
   handleSelect(key) {
     // alert(`selected ${key}`);
     this.setState({
       key,
-      BaseMap:this.state.keylist[key]
+      BaseMap:this.state.keylist[key],
+     // BaseMap:this.state.keylist[key]
 
      });
      this.props.SuperSetBaseMap(this.state.BaseMap);
-     //this.props.history.push("/");
+     this.props.SuperSetBaseMap(this.state.BaseMap);
+      reactLocalStorage.set('var', this.state.BaseMap);
+      reactLocalStorage.set('var', this.state.BaseMap);
+     //reactLocalStorage.setItem('myData', this.state.BaseMap);
+     //localStorage.setItem('myData', this.state.BaseMap);
+
+      setTimeout(function () {
+        window.location = '/'; //will redirect to your blog page (an ex: blog.html)
+     }, 4000); //will call the function after 2 secs.
 
   }
   render() {
